@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "fmt/format.h"
+#include <fmt/format.h>
 #include "simple_stats.h"
 
 namespace dramsim3 {

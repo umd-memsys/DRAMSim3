@@ -1,5 +1,8 @@
-cmake_minimum_required(VERSION 3.0.0)
-project(dramsim3)
+cmake_minimum_required(VERSION 3.10)
+project(dramsim3 CXX)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
 set(default_build_type "Release")
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
@@ -14,9 +17,14 @@ endif()
 add_library(inih INTERFACE)
 target_include_directories(inih INTERFACE ext/headers)
 
-add_library(format INTERFACE)
-target_include_directories(format INTERFACE ext/fmt/include)
-target_compile_definitions(format INTERFACE FMT_HEADER_ONLY=1)
+find_package(fmt)
+if(NOT fmt_FOUND)
+    message(STATUS "External fmt package not found, using internal one")
+    add_library(fmt INTERFACE)
+    target_include_directories(fmt INTERFACE ext/fmt/include)
+    target_compile_definitions(fmt INTERFACE FMT_HEADER_ONLY=1)
+    add_library(fmt::fmt-header-only ALIAS fmt)
+endif(NOT fmt_FOUND)
 
 # argparsing library, only used in main program not the library
 add_library(args INTERFACE)
@@ -26,7 +34,7 @@ add_library(json INTERFACE)
 target_include_directories(json INTERFACE ext/headers)
 
 # Main DRAMSim Lib
-add_library(dramsim3 SHARED
+add_library(dramsim3
     src/bankstate.cc
     src/channel_state.cc
     src/command_queue.cc
@@ -78,11 +86,8 @@ endif (ADDR_TRACE)
 
 target_include_directories(dramsim3 INTERFACE src)
 target_compile_options(dramsim3 PRIVATE -Wall)
-target_link_libraries(dramsim3 PRIVATE inih format)
+target_link_libraries(dramsim3 PRIVATE inih fmt::fmt-header-only)
 set_target_properties(dramsim3 PROPERTIES
-    LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}
-    CXX_STANDARD 11
-    CXX_STANDARD_REQUIRED YES
     CXX_EXTENSIONS NO
 )
 
@@ -91,21 +96,18 @@ add_executable(dramsim3main src/main.cc src/cpu.cc)
 target_link_libraries(dramsim3main PRIVATE dramsim3 args)
 target_compile_options(dramsim3main PRIVATE)
 set_target_properties(dramsim3main PROPERTIES
-    CXX_STANDARD 11
-    CXX_STANDARD_REQUIRED YES
     CXX_EXTENSIONS NO
 )
 
 # Unit testing
-add_library(Catch INTERFACE)
-target_include_directories(Catch INTERFACE ext/headers)
+find_package(Catch2 3 REQUIRED)
 
 add_executable(dramsim3test EXCLUDE_FROM_ALL
     tests/test_config.cc
     tests/test_dramsys.cc
     tests/test_hmcsys.cc # IDK somehow this can literally crush your computer
 )
-target_link_libraries(dramsim3test Catch dramsim3)
+target_link_libraries(dramsim3test Catch2::Catch2WithMain dramsim3)
 target_include_directories(dramsim3test PRIVATE src/)
 
 # We have to use this custome command because there's a bug in cmake

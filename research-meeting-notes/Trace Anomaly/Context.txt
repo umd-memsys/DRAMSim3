@@ -1,0 +1,3 @@
+Context:
+
+While experimenting with traces, one of our traces caused the max recorded temperature for GDDR5X_8Gb_x32 and GDDR5_1Gb_x32 to skyrocket far past all other values.  The trace was nearly identical to our first trace, though we swapped from a WRITE command to a READ command and vice versa every 3-5 accesses.  Upon analysis of the data, we concluded that this was a bug, so we did not include it in our final presentation.

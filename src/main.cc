@@ -64,9 +64,12 @@ int main(int argc, const char **argv) {
     for (uint64_t clk = 0; clk < cycles; clk++) {
         cpu->ClockTick();
     }
+    std::cout<<"test1" << std::endl;
     cpu->PrintStats();
 
+    std::cout<<"test1" << std::endl;
     delete cpu;
 
+    std::cout<<"test1" << std::endl;
     return 0;
 }

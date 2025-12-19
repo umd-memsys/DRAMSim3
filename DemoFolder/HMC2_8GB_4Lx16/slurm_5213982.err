@@ -1,0 +1,2 @@
+/var/spool/slurmd/job5213982/slurm_script: line 10: 323461 Killed                  /bigtemp/jrs6qe/DepCompProject/DRAMsim3/build/dramsim3main /bigtemp/jrs6qe/DepCompProject/DRAMsim3/configs/HMC2_8GB_4Lx16.ini -c 100000 -t /bigtemp/jrs6qe/DepCompProject/DRAMsim3/generateTracePlayground/thermal_attack.trace
+slurmstepd: error: Detected 1 oom_kill event in StepId=5213982.batch. Some of the step tasks have been OOM Killed.

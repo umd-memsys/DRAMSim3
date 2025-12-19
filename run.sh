@@ -1,0 +1,1 @@
+./build/dramsim3main configs/GDDR5X_8Gb_x32.ini -c 100000 -t generateTracePlayground/thermal_attack.trace

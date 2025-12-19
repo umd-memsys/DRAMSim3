@@ -98,7 +98,6 @@ ThermalCalculator::ThermalCalculator(const Config &config)
     }
 
     InitialParameters();
-
     refresh_count = std::vector<std::vector<int>>(
         config_.channels * config_.ranks, std::vector<int>(config_.banks, 0));
 
@@ -582,7 +581,9 @@ void ThermalCalculator::PrintTransPT(uint64_t clk) {
 }
 
 void ThermalCalculator::PrintFinalPT(uint64_t clk) {
+	std::cout<<"test10" << std::endl;
     if (config_.IsHBM() || config_.IsHMC()) {
+	std::cout<<"test1" << std::endl;
         double bg_energy = 0;
         for (const auto &vec_rank_energy : background_energy_) {
             for (const auto &rank_energy : vec_rank_energy) {
@@ -598,12 +599,13 @@ void ThermalCalculator::PrintFinalPT(uint64_t clk) {
                 int case_id = i * config_.ranks + j;
                 double bg_energy =
                     background_energy_[i][j] / (dimX * dimY * numP);
-                for (int k = 0; k < dimX * dimY * numP; i++) {
+                for (int k = 0; k < dimX * dimY * numP; k++) {
                     accu_Pmap[case_id][i] += bg_energy / 1000 / num_devices;
                 }
             }
         }
     }
+	std::cout<<"test2" << std::endl;
     // calculate the final temperature for each case
     for (int ir = 0; ir < num_case; ir++) {
         CalcFinalT(ir, clk);
@@ -614,12 +616,14 @@ void ThermalCalculator::PrintFinalPT(uint64_t clk) {
                        clk);
     }
 
+	std::cout<<"test3" << std::endl;
     // close all the csv files
     final_temperature_file_csv_.close();
     epoch_max_temp_file_csv_.close();
     if (config_.output_level >= 2) {
         epoch_temperature_file_csv_.close();
     }
+	std::cout<<"test4" << std::endl;
 }
 
 void ThermalCalculator::CalcTransT(int case_id) {

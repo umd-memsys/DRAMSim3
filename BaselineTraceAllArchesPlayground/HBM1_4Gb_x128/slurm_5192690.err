@@ -1,0 +1,2 @@
+/var/spool/slurmd/job5192690/slurm_script: line 10: 1465002 Killed                  /bigtemp/jrs6qe/DepCompProject/DRAMsim3/build/dramsim3main /bigtemp/jrs6qe/DepCompProject/DRAMsim3/configs/HBM1_4Gb_x128.ini --stream random -c 100000
+slurmstepd: error: Detected 1 oom_kill event in StepId=5192690.batch. Some of the step tasks have been OOM Killed.

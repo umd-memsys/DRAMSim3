@@ -21,7 +21,7 @@ const double Ccu = 3.2e6;   // Copper
 const double Cin = 1.65e6;  // insulator
 const double Chs = 2.42e6;  // Heat sink
 
-/* Layer Hight */
+/* Layer Height */
 const double Hsi = 400e-6;   // Silicon
 const double Hcu = 5e-6;     // Copper
 const double Hin = 20e-6;    // Insulator

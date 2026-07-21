@@ -36,7 +36,7 @@ CommandQueue::CommandQueue(int channel_id, const Config& config,
 Command CommandQueue::GetCommandToIssue() {
     for (int i = 0; i < num_queues_; i++) {
         auto& queue = GetNextQueue();
-        // if we're refresing, skip the command queues that are involved
+        // if we're refreshing, skip the command queues that are involved
         if (is_in_ref_) {
             if (ref_q_indices_.find(queue_idx_) != ref_q_indices_.end()) {
                 continue;

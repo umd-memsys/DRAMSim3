@@ -66,7 +66,7 @@ Timing::Timing(const Config& config)
         // the value of tXXX_S should be used instead of tXXX_L
         // (because now the device is running at a lower freq)
         // we overwrite the following values so that we don't have
-        // to change the assignement of the vectors
+        // to change the assignment of the vectors
         read_to_read_l = std::max(config.burst_cycle, config.tCCD_S);
         write_to_read_l = config.write_delay + config.tWTR_S;
         write_to_write_l = std::max(config.burst_cycle, config.tCCD_S);
@@ -241,7 +241,7 @@ Timing::Timing(const Config& config)
             {CommandType::REFRESH_BANK, refresh_to_refresh},
         };
 
-    // REFRESH, SREF_ENTER and SREF_EXIT are isued to the entire
+    // REFRESH, SREF_ENTER and SREF_EXIT are issued to the entire
     // rank  command REFRESH
     same_rank[static_cast<int>(CommandType::REFRESH)] =
         std::vector<std::pair<CommandType, int> >{

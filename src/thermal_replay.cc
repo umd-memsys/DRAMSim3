@@ -90,7 +90,7 @@ void ThermalReplay::ParseLine(std::string line, uint64_t &clk, Command &cmd) {
         {"write_p", CommandType::WRITE_PRECHARGE},
         {"activate", CommandType::ACTIVATE},
         {"precharge", CommandType::PRECHARGE},
-        {"refresh_bank", CommandType::REFRESH_BANK},  // verilog model doesn't
+        {"refresh_bank", CommandType::REFRESH_BANK},  // Verilog model doesn't
                                                       // distinguish bank/rank
                                                       // refresh
         {"refresh", CommandType::REFRESH},

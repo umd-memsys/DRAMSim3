@@ -162,7 +162,7 @@ void Config::InitOtherParams() {
     output_level = reader.GetInteger("other", "output_level", 1);
     // Other Parameters
     // give a prefix instead of specify the output name one by one...
-    // this would allow outputing to a directory and you can always override
+    // this would allow outputting to a directory and you can always override
     // these values
     if (!DirExist(output_dir)) {
         std::cout << "WARNING: Output directory " << output_dir

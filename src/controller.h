@@ -74,7 +74,7 @@ class Controller {
     // used to calculate inter-arrival latency
     uint64_t last_trans_clk_;
 
-    // transaction queueing
+    // transaction queuing
     int write_draining_;
     void ScheduleTransaction();
     void IssueCommand(const Command &tmp_cmd);

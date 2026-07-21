@@ -14,7 +14,7 @@ std::ostream& operator<<(std::ostream& os, const Command& cmd) {
         "write_p",
         "activate",
         "precharge",
-        "refresh_bank",  // verilog model doesn't distinguish bank/rank refresh
+        "refresh_bank",  // Verilog model doesn't distinguish bank/rank refresh
         "refresh",
         "self_refresh_enter",
         "self_refresh_exit",

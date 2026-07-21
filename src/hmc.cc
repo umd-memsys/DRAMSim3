@@ -248,7 +248,7 @@ HMCMemorySystem::HMCMemorySystem(Config &config, const std::string &output_dir,
       logic_ps_(0),
       dram_ps_(0),
       next_link_(0) {
-    // sanity check, this constructor should only be intialized using HMC
+    // sanity check, this constructor should only be initialized using HMC
     if (!config_.IsHMC()) {
         std::cerr << "Initialzed an HMC system without an HMC config file!"
                   << std::endl;
@@ -269,7 +269,7 @@ HMCMemorySystem::HMCMemorySystem(Config &config, const std::string &output_dir,
     // initialize vaults and crossbar
     // the first layer of xbar will be num_links * 4 (4 for quadrants)
     // the second layer will be a 1:8 xbar
-    // (each quadrant has 8 vaults and each quadrant can access any ohter
+    // (each quadrant has 8 vaults and each quadrant can access any other
     // quadrant)
     queue_depth_ = static_cast<size_t>(config_.xbar_queue_depth);
     links_ = config_.num_links;
@@ -319,7 +319,7 @@ void HMCMemorySystem::SetClockRatio() {
 }
 
 inline void HMCMemorySystem::IterateNextLink() {
-    // determinining which link a request goes to has great impact on
+    // determining which link a request goes to has great impact on
     // performance round robin , we can implement other schemes here later such
     // as random but there're only at most 4 links so I suspect it would make a
     // difference
@@ -342,7 +342,7 @@ bool HMCMemorySystem::WillAcceptTransaction(uint64_t hex_addr,
 
 bool HMCMemorySystem::AddTransaction(uint64_t hex_addr, bool is_write) {
     // to be compatible with other protocol we have this interface
-    // when using this intreface the size of each transaction will be block_size
+    // when using this interface the size of each transaction will be block_size
     HMCReqType req_type;
     if (is_write) {
         switch (config_.block_size) {
@@ -587,7 +587,7 @@ void HMCMemorySystem::ClockTick() {
 }
 
 std::vector<int> HMCMemorySystem::BuildAgeQueue(std::vector<int> &age_counter) {
-    // return a vector of indices sorted in decending order
+    // return a vector of indices sorted in descending order
     // meaning that the oldest age link/quad should be processed first
     std::vector<int> age_queue;
     int queue_len = age_counter.size();

@@ -54,7 +54,7 @@ enum class HMCReqType {
     NOR16,
     AND16,
     NAND16,
-    // comparison instructions, not sure if there's write untill read done
+    // comparison instructions, not sure if there's write until read done
     CASGT8,
     CASGT16,
     CASLT8,

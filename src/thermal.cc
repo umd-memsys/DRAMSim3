@@ -31,7 +31,7 @@ ThermalCalculator::ThermalCalculator(const Config &config)
       avg_logic_power_(0.0) {
     // Initialize dimX, dimY, numP
     // The dimension of the chip is determined such that the floorplan is
-    // as square as possilbe. If a square floorplan cannot be reached,
+    // as square as possible. If a square floorplan cannot be reached,
     // x-dimension is larger
     if (config_.IsHMC()) {
         numP = config_.num_dies + 1;  // add logic layer for HMC
@@ -369,7 +369,7 @@ void ThermalCalculator::LocationMappingANDaddEnergy(const int channel,
 
     int z_offset = z * dimX * dimY;
     double energy = add_energy / config_.device_width;
-    // add energy to engergy map
+    // add energy to energy map
     // iterate x y (they have same size)
     for (size_t i = 0; i < x.size(); i++) {
         int y_offset = y[i] * dimX;

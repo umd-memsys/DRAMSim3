@@ -79,7 +79,7 @@ class ThermalCalculator {
 
     int time_iter0, time_iter;
     double Tamb;  // The ambient temperature in Kelvin
-    const int num_dummy = 2;  // dummy cells around the calculatd die
+    const int num_dummy = 2;  // dummy cells around the calculated die
 
     int dimX, dimY, numP;   // Dimension of the memory
     double **Midx;          // Midx storing thermal conductance

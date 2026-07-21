@@ -69,7 +69,7 @@ class JedecDRAMSystem : public BaseDRAMSystem {
     void ClockTick() override;
 };
 
-// Model a memorysystem with an infinite bandwidth and a fixed latency (possibly
+// Model a memory system with an infinite bandwidth and a fixed latency (possibly
 // zero) To establish a baseline for what a 'good' memory standard can and
 // cannot do for a given application
 class IdealDRAMSystem : public BaseDRAMSystem {

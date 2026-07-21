@@ -57,7 +57,7 @@ class Config {
 
     // Generic DRAM timing parameters
     double tCK;
-    int burst_cycle;  // seperate BL with timing since for GDDRx it's not BL/2
+    int burst_cycle;  // separate BL with timing since for GDDRx it's not BL/2
     int AL;
     int CL;
     int CWL;

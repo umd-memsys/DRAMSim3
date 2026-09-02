@@ -152,7 +152,7 @@ other Verilog simulators may require a slightly different format.
 
 [4] Li, S., Verdejo, R. S., Radojković, P., & Jacob, B. (2019, September). Rethinking cycle accurate DRAM simulation. In Proceedings of the International Symposium on Memory Systems (pp. 184-191).
 
-[5] Li, S., & Jacob, B. (2019, September). Statistical DRAM modeling. In Proceedings of the International Symposium on Memory Systems (pp. 521-530).
+[5] Li, S. ,& Jacob, B. (2019, September). Statistical DRAM modeling. In Proceedings of the International Symposium on Memory Systems (pp. 521-530).
 
 [6] Li, S. (2019). Scalable and Accurate Memory System Simulation (Doctoral dissertation).
 
